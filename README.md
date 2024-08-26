@@ -2,8 +2,7 @@
 
 Platform to help you find the right data and get you on the way to using it. Website based on the [Cayman](https://github.com/pages-themes/cayman) theme.
 
-Structure:
-
+```bash
 root/
 |   datasets.md
 |   Gemfile
@@ -35,3 +34,4 @@ root/
     \---datasets
             example-dataset.html
             gsoep-data.html
+```
