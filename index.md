@@ -33,49 +33,10 @@ title: Home
       <li class="dataset-item" data-year="{{ dataset.year }}" data-unit="{{ dataset.unit }}">
         <h3>{{ dataset.title }}</h3>
         <p>{{ dataset.description }}</p>
-        <a href="{{ dataset.url }}">View Dataset</a>
       </li>
     {% endfor %}
   </ul>
 </div>
-
-<!-- JavaScript for dataset filtering -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var searchInput = document.getElementById('search-input');
-    var yearFilter = document.getElementById('year-filter');
-    var unitFilter = document.getElementById('unit-filter');
-
-    function filterDatasets() {
-      var searchQuery = searchInput.value.toLowerCase();
-      var selectedYear = yearFilter.value;
-      var selectedUnit = unitFilter.value;
-
-      var items = document.querySelectorAll('#dataset-list .dataset-item');
-
-      items.forEach(function(item) {
-        var title = item.querySelector('h3').textContent.toLowerCase();
-        var description = item.querySelector('p').textContent.toLowerCase();
-        var year = item.getAttribute('data-year');
-        var unit = item.getAttribute('data-unit');
-
-        var matchesSearch = title.includes(searchQuery) || description.includes(searchQuery);
-        var matchesYear = !selectedYear || selectedYear === year;
-        var matchesUnit = !selectedUnit || selectedUnit === unit;
-
-        if (matchesSearch && matchesYear && matchesUnit) {
-          item.style.display = '';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    }
-
-    searchInput.addEventListener('input', filterDatasets);
-    yearFilter.addEventListener('change', filterDatasets);
-    unitFilter.addEventListener('change', filterDatasets);
-  });
-</script>
 
 <!-- Custom CSS -->
 <style>

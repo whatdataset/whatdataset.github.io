@@ -24,7 +24,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="/assets/css/style.css?v=d284a550b09b5637b4e599eac7b4c3f3b1d9473d">
+    <link rel="stylesheet" href="/assets/css/style.css?v=4c714bcbe02e95f9b42eb5bf603ae56780504263">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/awesomplete@1.1.5/awesomplete.css">
+    <script src="https://cdn.jsdelivr.net/npm/awesomplete@1.1.5/awesomplete.min.js"></script>
+    
     <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
 
 <!-- Setup Google Analytics -->
@@ -36,7 +39,8 @@
 
 <!-- end custom head snippets -->
 
-    <!-- Add custom CSS for dataset filter if needed -->
+    
+    <!-- Add custom CSS for dataset filter and modal -->
     <style>
       #dataset-filter {
         margin-bottom: 20px;
@@ -52,9 +56,50 @@
       }
       .dataset-item {
         margin-bottom: 10px;
+        cursor: pointer; /* Indicates clickable items */
+      }
+      /* Modal styles */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+      }
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+      }
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
       }
     </style>
+    
+    <!-- Custom Title Tag -->
+    <title>
+      
+        Datasets | WhatDataset?
+      
+    </title>
   </head>
+
   <body>
     <a id="skip-to-content" href="#content">Skip to the content.</a>
 
@@ -78,8 +123,8 @@
   <ul id="dataset-list">
     
       <li class="dataset-item">
-        <h3>Example Dataset</h3>
-        <p>This dataset provides information on example topics.</p>
+        <h3>Panel Study of Income Dynamics</h3>
+        <p>Panel data from the United States with information on employment, income, wealth, expenditures, etc.</p>
         <a href="/datasets/example-dataset.html">View Dataset</a>
       </li>
     
@@ -112,32 +157,24 @@
 </script>
 
 
-
-     	<footer class="site-footer">
-  	<span>© Copyright 2024 WhatDataset.</span>
-	</footer>
     </main>
 
-    <!-- Add custom JavaScript for dataset filter -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        var filterInput = document.getElementById('filter-input');
-        if (filterInput) {
-          filterInput.addEventListener('input', function() {
-            var filter = this.value.toLowerCase();
-            var items = document.querySelectorAll('#dataset-list .dataset-item');
-            items.forEach(function(item) {
-              var title = item.querySelector('h3').textContent.toLowerCase();
-              var description = item.querySelector('p').textContent.toLowerCase();
-              if (title.includes(filter) || description.includes(filter)) {
-                item.style.display = '';
-              } else {
-                item.style.display = 'none';
-              }
-            });
-          });
-        }
-      });
-    </script>
+    <footer class="site-footer">
+      <span>© Copyright 2024 WhatDataset.</span>
+    </footer>
+    
+    <!-- Modal Structure -->
+    <div id="datasetModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="modalBody">
+          <!-- Content will be dynamically inserted here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Include the external JavaScript file for dataset filtering -->
+    <script src="/assets/js/filter_datasets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   </body>
 </html>
