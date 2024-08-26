@@ -9,7 +9,7 @@ theme: jekyll-theme-cayman
 description: The Right Data for the Right Questions
 
 show_downloads: false
-baseurl: "/whatdataset.github.io"
+
 google_analytics:
 
 collections:
