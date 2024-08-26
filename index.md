@@ -4,7 +4,7 @@ title: Home
 ---
 
 <h1>Welcome to WhatDataset?</h1>
-<p> To answer your unique research question, you may need a combination of datasets. This website provides an overview of many commonly used datasets, and points out their main strengths and drawbacks. We allow users to quickly filter based on the unit of observation, time period, and several other characteristics. </p>
+<p> To answer your empirical research question, you need the right dataset or combination of datasets. This website provides an overview of many commonly used datasets, and points out their main strengths and drawbacks. We allow users to quickly filter based on the unit of observation, time period, and several other characteristics. </p>
 
 <h2> Find Your Dataset </h2>
 
